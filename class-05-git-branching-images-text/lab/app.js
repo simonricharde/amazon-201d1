@@ -9,11 +9,11 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-    return ([a+b, 'The sum of 4 and 7 is 11.']);
+    return([a+b, "The sum of " + a + " and " + b + " is " + (a+b) + "."]);
 }
 
 // Here is the test for sum(); uncomment it to run it
-testSum(4, 7);
+testSum(5,3);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -27,11 +27,11 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
-    return ([a*b, 'The product of 5 and 9 is 45.']);
+    return([a*b, "The product of " + a + " and " + b + " is " + (a*b) + "."]);
 }
 
 // Here is the test for multiply(); uncomment it to run it
-testMultiply(5,9);
+testMultiply(10,8);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -48,11 +48,13 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-    return ([a+b+c, a*b*c, '4 and 7 and 5 sum to 16.', 'The product of 4 and 7 and 5 is 140.']);
+   var addMessage = (a + " and " + b + " and " + c + " sum to " + (a+b+c) + ".");
+    var multiplyMessage = ( "The product of " + a + " and " + b + " and " + c + " is " + (a*b*c) + ".");
+    return ( [(a+b+c), (a*b*c), addMessage, multiplyMessage] );
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-testSumAndMultiply(4,7,5);
+testSumAndMultiply(3,4,6);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -71,11 +73,21 @@ var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
     var addition=0;
+    var arrayMessage ='';
     for(var i=0;i<sumArr.length;i++) {
         addition=(sum(sumArr[i],addition)[0]);
+        if(i !== sumArr.length-1) {
+            arrayMessage = arrayMessage + sumArr[i] + ',';
+        } else {
+            arrayMessage = arrayMessage + sumArr[i];
+        }
+
+
     }
+    arrayMessage = arrayMessage + ' was passed in as an array of numbers, and '+addition+' is their sum.'
     console.log(addition);
-    return ([addition, '2,3,4 was passed in as an array of numbers, and 9 is their sum.']);
+    console.log(arrayMessage);
+    return [addition, arrayMessage];
 
 }
 
@@ -98,11 +110,19 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
     var multiplication=1;
+    var arrayMessage ='The numbers ';
     for(var i=0;i<multArr.length;i++) {
         multiplication=(multiply(multArr[i],multiplication)[0]);
+        if(i !== multArr.length-1) {
+            arrayMessage = arrayMessage + multArr[i] + ',';
+        } else {
+            arrayMessage = arrayMessage + multArr[i];
+        }
     }
+    arrayMessage = arrayMessage + ' have a product of '+multiplication+'.'
     console.log(multiplication);
-    return ([multiplication, 'The numbers 2,3,4 have a product of 24.']);
+    console.log(arrayMessage);
+    return [multiplication, arrayMessage];
 
 }
 
@@ -132,10 +152,18 @@ var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
     var product=1;
+    var arrayMessage ='The numbers ';
     for(var i=0;i<dynamicArray.length;i++) {
         product=(multiply(dynamicArray[i],product)[0]);
+        if(i !== dynamicArray.length-1) {
+            arrayMessage = arrayMessage + dynamicArray[i] + ',';
+        } else {
+            arrayMessage = arrayMessage + dynamicArray[i];
+        }
     }
+    arrayMessage = arrayMessage + ' have a product of '+product+'.'
     console.log(product);
+    console.log(arrayMessage);
     return ([product,'The numbers 1,2,3,4,5 have a product of 120.']);
 
 }
